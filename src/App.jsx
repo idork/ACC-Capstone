@@ -1,8 +1,8 @@
 import { useState } from 'react'
+import React from 'react'
 import { Routes, Route, Link } from "react-router-dom"
 import Products from './Components/Products'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import SingleProduct from './Components/SingleProduct'
 import './App.css'
 
 function App() {
@@ -14,7 +14,8 @@ function App() {
 <>
     <div>
       <Link to="/"><h1> Avrge </h1> </Link>
-        <div>
+      <div id="block"></div>
+        <div id="nav">
           <Link to="/Products"> Products </Link>
           <Link to="/Sign-in"> Sign In </Link>
           <Link> Search </Link>
@@ -25,6 +26,7 @@ function App() {
       {/*<Route path="/" element={<Home />} /> */}
       <Route path="Products" element={<Products />} />
       <Route path="/Sign-in" element={<Sign-in />} />
+      <Route path="/SingleProduct/:id" element={<SingleProduct />} />
     </Routes>
     </>
   )
