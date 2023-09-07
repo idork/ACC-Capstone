@@ -22,9 +22,15 @@ export default function Products(){
         fetchProducts();
     }, []);
 
+
+
+
+
     return(
         <div className="allProducts">
         <h1 id="product-h1"> Products </h1>
+        
+
         <div className="grid">
         {product.map((obj) => {
             return (
@@ -38,6 +44,9 @@ export default function Products(){
             );
         })}
         </div>
+        <div> </div>
         </div> 
     )
+
+
 }

@@ -13,11 +13,11 @@ function App() {
   return (
 <>
     <div>
-      <Link to="/"><h1> Avrge </h1> </Link>
+      <Link to="/"><h1> Daily Shop </h1> </Link>
       <div id="block"></div>
         <div id="nav">
           <Link to="/Products"> Products </Link>
-          <Link to="/Sign-in"> Sign In </Link>
+         
           <Link> Search </Link>
         </div>
 
@@ -25,7 +25,7 @@ function App() {
     <Routes>
       {/*<Route path="/" element={<Home />} /> */}
       <Route path="Products" element={<Products />} />
-      <Route path="/Sign-in" element={<Sign-in />} />
+     
       <Route path="/SingleProduct/:id" element={<SingleProduct />} />
     </Routes>
     </>
