@@ -29,7 +29,7 @@ export default function SingleProduct(){
             <div id="single-product-img"> <img src={product.image} /></div>
             <div id="single-product-price"> {product.price}</div>
             <div id="single-product-description"> {product.description}</div>
-
+            <button> Add to Cart </button>
 
         </div>
     )

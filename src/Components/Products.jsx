@@ -22,10 +22,6 @@ export default function Products(){
         fetchProducts();
     }, []);
 
-
-
-
-
     return(
         <div className="allProducts">
         <h1 id="product-h1"> Products </h1>
@@ -44,7 +40,6 @@ export default function Products(){
             );
         })}
         </div>
-        <div> </div>
         </div> 
     )
 
