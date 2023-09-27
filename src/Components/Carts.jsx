@@ -1,56 +1,69 @@
 import React from 'react'
-import { getSingleCart } from '../API/Index'
+import { getSingleProduct } from '../API/index'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { getSingleUser } from '../API/index'
+import { useNavigate } from 'react-router-dom'
 
-export default function Cart({token}) {
-    const { id } = useParams();
-    const [myCart, setCart] = useState([]);
-    const [cart, setAddCart] = useState([]);
+export default function Cart() {
+    const [product, setProduct] = useState([]);
+    const [cart, setCart] = useState([]);
+    const navigate = useNavigate();
 
+    //const [myCart, setMyCart] = useState([]);
     useEffect(() => {
-        async function fetchSingleCart() {
-            try{ 
-                const myCart = await getSingleCart(id);
+        async function fetchSingleProducts() {
+            try{
+                const product = await getSingleProduct(id);
                 console.log(id);
                 console.log('hi');
-                setCart(myCart);
+                setProduct(product);
+
+                const cart = localStorage.getItem('cart');
+                if (cart){
+                    setCart(JSON.parse(cart));
+                }
+
             }catch(err){
                 console.log(err);
             }
+
+
         }
-        fetchSingleCart();
-        console.log("token-cart" + token);
+        fetchSingleProducts();
     }, []);
 
-        useEffect(() => {
-            async function addedToCart(){
-                try{
-                    const cart = await addCart();
-                    setAddCart(cart);
-                }catch(err){
-                    console.log(err);
-                }
-            }
-            addedToCart();
-        })
+
+    console.log ("is cart working?");
+    const myCart = JSON.stringify(localStorage.getItem('cart'));
+
+    const removeItem = (removingProduct) => {
+        Object.entries(cart).forEach(([key,value])=>{
+            localStorage.setItem(key,value)
+          })
+    }
 
 
-    return (
+
+    var arrayLocalStorage = JSON.parse(localStorage.getItem("cart"));
+    var arrayLocalLength = arrayLocalStorage.length;
+
+    return(
+         <div>
+        <header> Cart ({arrayLocalLength -1})</header>
         <div>
-            <h4 id='cartId'>{myCart.id} </h4>
-            <div id="single-cart-date"> Date: {myCart.date}</div>
+        {arrayLocalStorage.map((item) =>(
+        <div>
+        <p>{item.title}</p>
+        <img src={item.image} />
+        <button onClick={removeItem}> Remove </button>
+        </div>
+        ))}
+        </div>
 
-            {myCart != null && myCart.products != null && myCart.products.map((obj) => { //jsx if statement syntax, mainly to check if products array is there (only way it worked)
-                    return (
-                        <div key={obj.productId}>
-                            <div id="single-cart-product"> Product ID: {obj.productId}</div>
-                            <div id="single-cart-quantity"> Quantity: {obj.quantity}</div>
-                        </div>
-                    );
-                }
-            )}
+        <button> Check Out </button>
+
         </div>
     )
 

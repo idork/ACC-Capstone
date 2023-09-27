@@ -22,6 +22,8 @@ export default function Products(){
         fetchProducts();
     }, []);
 
+    
+
     return(
         <div className="allProducts">
         <h1 id="product-h1"> Products </h1>

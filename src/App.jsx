@@ -7,14 +7,15 @@ import Register from './Components/Register'
 import Login from './Components/Login'
 import Logout from './Components/Logout'
 import Carts from './Components/Carts'
+import { getSingleUser } from './API/index'
 import './App.css'
 
 
 
 export default function App() {
   const [token, setToken] = useState('');
-
   const auth_token = localStorage.getItem('auth_token');
+
   console.log("the token" + auth_token);
 
   const remove =  () =>{
@@ -25,8 +26,13 @@ export default function App() {
   return (
 <>
 
+
 {auth_token ? (
-            <Link to="/Cart"><button>Cart </button></Link>
+
+<button>
+<Link to="/Carts"> Cart </Link>
+</button>
+
           ) : (
           <span></span>
           ) }
@@ -54,7 +60,7 @@ export default function App() {
       <Route path="Register" element={<Register setToken={setToken}/>} />
       <Route path="/SingleProduct/:id" element={<SingleProduct />} />
       <Route path="/Login" element={<Login setToken={setToken}/>} />
-      <Route path="/Carts/:id" element={<Carts token={token}/>} />
+      <Route path="/Carts/" element={<Carts/>} />
     </Routes>
     </>
   )
