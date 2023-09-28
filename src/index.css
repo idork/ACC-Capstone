@@ -111,8 +111,13 @@ hr{
 
 #product-title{
   font-weight: 600;
-  text-align: left;
-  line-height: 15px;
+  text-align: center;
+  line-height: 20px;
+  width: 150px;
+}
+
+#product-price{
+  padding-top: 5px;
 }
 
 #product-price, #product-rating{
@@ -120,12 +125,24 @@ hr{
     text-align: left;
 }
 
+#product-rating{
+  background-color: rgb(231, 231, 165);
+  width: 100px;
+}
+
 .grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 25px;
   row-gap: 45px;
-  line-height: 1px;
+  line-height: 20px;
+}
+
+.column{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 /* Single product */
@@ -142,3 +159,115 @@ hr{
   padding-top: 20px;
 }
 
+.cart-button{
+  background-color: rgb(239, 223, 78);
+  width: 80px;
+  height: 25px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+
+#logOut-button{
+  background-color: rgb(102, 142, 236);
+  width: 80px;
+  height: 25px;
+  margin: 0 auto;
+  padding: 0;
+
+}
+
+#top-nav{
+  position: relative;
+  text-align: right;
+  display: inline-flex;
+  align-items: center;
+}
+
+.top-nav-button{
+  margin: 10px;
+
+}
+
+.top-nav-link{
+  margin: 0 auto;
+}
+
+
+span{
+  color: rgb(68, 115, 173);
+}
+/* Products page */
+
+#asc-button{
+  background-color: rgb(178, 154, 190);
+  width: 100px;
+  height: 25px;
+  margin: 0 0 0 10px;
+  padding: 0;
+}
+
+#desc-button{
+  background-color: rgb(178, 154, 190);
+  width: 100px;
+  height: 25px;
+  margin: 0 0 0 10px;
+  padding: 0;
+}
+
+/* Media Queries */
+
+@media (min-width: 320px) and (max-width: 768px) {
+  body {
+
+    
+  }
+
+  #products{
+    width: 150px;
+    height: 150px;
+    padding: 25px;
+  
+  }
+
+  img{
+    height: 150px;
+    width: 150px;
+    padding: 10x;
+    
+    border-radius: 5px;
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1px;
+    row-gap: 150px;
+    line-height: 20px;
+  }
+
+  .column{
+
+    margin: 0 auto;
+
+  }
+
+  #product-title{
+    font-weight: 600;
+    line-height: 20px;
+    font-size: .9rem;
+    width: 150px;
+    
+  }
+  
+  #product-price{
+    padding-top: 5px;
+  }
+  
+  #top-nav{
+    position: relative;
+    text-align: right;
+    margin-right: 20px;
+  }
+  
+}

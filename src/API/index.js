@@ -65,3 +65,10 @@ const result = await response.json();
 
     return result;
 }
+
+export const getSortedProduct = async () => {
+    const response = fetch(`${BASE_URL}`/products/categories)
+    const result = await response.json();
+
+    return result;
+}
