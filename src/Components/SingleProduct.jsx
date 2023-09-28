@@ -48,8 +48,6 @@ export default function SingleProduct(){
 
     console.log(cart);
 
-    var arrayLocalStorage = JSON.parse(localStorage.getItem("cart"));
-    var arrayLocalLength = arrayLocalStorage.length;
 
     return (
         

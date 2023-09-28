@@ -20,10 +20,9 @@ export default function Cart() {
                 console.log('hi');
                 setProduct(product);
 
-                const cart = localStorage.getItem('cart');
-                if (cart){
-                    setCart(JSON.parse(cart));
-                }
+                const cart = JSON.stringify(localStorage.getItem('cart'))
+
+                    setCart(cart);
 
             }catch(err){
                 console.log(err);
@@ -35,29 +34,38 @@ export default function Cart() {
     }, []);
 
 
-    console.log ("is cart working?");
+    let arrayLocalStorage = JSON.parse(localStorage.getItem("cart"));
+    let arrayLocalLength = arrayLocalStorage.length;
+    let cartLength = arrayLocalLength;
+
+    console.log ("Cart is working");
     const myCart = JSON.stringify(localStorage.getItem('cart'));
 
-    const removeItem = (removingProduct) => {
-        Object.entries(cart).forEach(([key,value])=>{
-            localStorage.setItem(key,value)
-          })
+    const removeItem = (productId) => {
+        const removedItems = [...arrayLocalStorage];
+        console.log(removedItems);
+        removedItems.splice(productId, 1); 
+
+        console.log(productId);
+        setCart(removedItems);
+
+        localStorage.setItem('cart', JSON.stringify(removedItems));
+
     }
 
 
 
-    var arrayLocalStorage = JSON.parse(localStorage.getItem("cart"));
-    var arrayLocalLength = arrayLocalStorage.length;
+
 
     return(
          <div>
-        <header> Cart ({arrayLocalLength -1})</header>
+        <header> Cart ({cartLength})</header>
         <div>
-        {arrayLocalStorage.map((item) =>(
-        <div>
+        {arrayLocalStorage.map((item, index) =>(
+        <div> {/* setting the key to item, so that it is unique for the key's (what it is using to loop through */}
         <p>{item.title}</p>
         <img src={item.image} />
-        <button onClick={removeItem}> Remove </button>
+        <button onClick={() => removeItem(index)}> Remove </button> {/*passing i so that it knows which one to remove */}
         </div>
         ))}
         </div>

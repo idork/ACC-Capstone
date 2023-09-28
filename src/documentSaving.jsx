@@ -28,3 +28,26 @@
             )}
         </div> */
     //)
+
+
+
+    //re,ove item
+    /*        
+        setCart(
+            cart.Filter((product) => product !== removingProduct )
+        )
+        */
+
+        /*         Object.entries(cart).forEach(([key,value])=>{
+            localStorage.setItem(key,value)
+          }) */
+
+          /*         const removedItems = [...product];
+        removedItems.splice(item, 1); {/*remove what is in location of i */
+
+        /*
+        console.log(item);
+        setProduct(removedItems);
+
+        localStorage.setItem('cart', JSON.stringify(removedItems));
+        */

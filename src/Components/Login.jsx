@@ -34,7 +34,7 @@ export default function Login({setToken}) {
         }
         const check =  () => {
             {result[0] ? (
-                navigate('/Products')
+                onClick=navigate('/Products')
             ) : (
                 console.log("fail")
             )}
