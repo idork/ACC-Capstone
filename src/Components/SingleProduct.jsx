@@ -11,6 +11,7 @@ export default function SingleProduct(){
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     const [cart, setCart] = useState([]);
+    const [total,setTotal]=useState(0)
 
 
     useEffect(() => {
@@ -35,12 +36,13 @@ export default function SingleProduct(){
         fetchSingleProducts();
     }, []);
 
-    const addToCart = (product) => {
 
+    const addToCart = (product) => {
         const addedProducts = [...cart, product];
         setCart(addedProducts);
 
         localStorage.setItem('cart', JSON.stringify(addedProducts));
+
 
 /*         setCart([...cart, product ]);
         localStorage.setItem("cart", JSON.stringify(cart)); */

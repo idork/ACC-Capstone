@@ -7,6 +7,7 @@ export default function Login({setToken}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [result, setResult] = useState({});
+    const [cart, setCart] = useState({});
 
     const navigate = useNavigate();
 
@@ -21,6 +22,10 @@ export default function Login({setToken}) {
             localStorage.setItem('auth_token', JSON.stringify(token));
             setToken(token);
 
+            const cart = localStorage.getItem('cart');
+            localStorage.setItem('cart', JSON.stringify([]));
+
+
             console.log(result);
             console.log("username: " + username)
             console.log("password: " + password);
@@ -32,15 +37,14 @@ export default function Login({setToken}) {
         }
 
         }
-        const check =  () => {
-            {result[0] ? (
-                onClick=navigate('/Products')
-            ) : (
-                console.log("fail")
-            )}
 
-    }
 
+    const check =  () => {
+        if (auth_token){
+            navigate('/Proucts/')}
+        }
+
+    
     return (<form method="post" onSubmit={handleSubmit}>
         
         <h3 id="component-h3"> Login </h3>
