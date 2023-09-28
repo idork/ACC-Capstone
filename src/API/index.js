@@ -48,14 +48,6 @@ export const userLogin = async (username, password) => {
     return result;
 }
 
-export const getAllCarts = async () => {
-    const response = await fetch (`${BASE_URL}/carts`, {
-    })
-    const result = await response.json();
-    console.log(result);
-    console.log("the cart is working");
-}
-
 export const getSingleCart = async (cartId) => {
     const response = await fetch(`${BASE_URL}/carts/${cartId}`,{
 
@@ -65,43 +57,11 @@ export const getSingleCart = async (cartId) => {
     return result;
 }
 
-export const addCart = async (userId, date, products, productId, quantity) => {
-    const response = await fetch(`${BASE_URL}/carts/${cartId}`,{
-            method:"PUT",
-            body:JSON.stringify(
-                {
-                    userId: userId,
-                    date: date,
-                    products:[{productId: productId,quantity:quantity}]
-                }
-            )
-        })
-        const result = await response.json();
-        console.log("we have added data to the cart");
-        return result;
-}
+// get a single user (this way we can add it to the cart)
 
-export const updateCart = async (useId, date, products, productId, quantity) => {
-    const response = await fetch(`${BASE_URL}/carts/${cartId}`,{
-        method:"PATCH",
-                body:JSON.stringify(
-                    {
-                        userId:3,
-                        date:2019-12-10,
-                        products:[{productId:1,quantity:3}]
-                    }
-                )
-            })
-            const result = await response.json();
-            console.log("we have updated the cart");
-            return result;
-}
+export const getSingleUser = async (id) =>{
+const response = fetch(`${BASE_URL}/users/${id}`)
+const result = await response.json();
 
-export const deleteCart = async () => {
-    const response = await fetch(`${BASE_URL}/carts/${cartId}`,{
-        method: "DELETE"
-    })
-    const result = await response.json();
-    console.log("we have deleted data from the cart");
     return result;
 }
